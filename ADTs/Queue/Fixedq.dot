@@ -1,0 +1,7 @@
+digraph structs
+{
+ rankdir = TB;
+ node [shape=record];
+ Queue [label="20|30|40|50|"];
+}
+

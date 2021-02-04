@@ -1,0 +1,38 @@
+ADTs
+• But such coding is notoriously error-prone. We’d
+like to avoid it, if we can.
+• Therefore, we generally use some library code.
+• Build something once, and test it well.
+• One example of this is an Abstract Data Type
+(ADT).
+• Each ADT exposes its functionality via an interface.
+• One of the most basic ADTs is a Collection
+
+Collections I
+• This is just a simple place to search for/add/delete
+data elements.
+• Some collections allow duplicate elements and
+others do not (e.g. Sets).
+• Some are ordered (for faster searching) and others unordered.
+• Any code using the ADT can be compiled against
+any of the impmentations.
+• The Collection interface (coll.h) is never changed.
+• There are pros and cons of each implementation:
+– Fixed Array : Simple to implement - can’t avoid
+the problems of it being a fixed-size. Deletion
+expensive.
+– Dynamic Array : Implementation fairly simple.
+Deletion expensive. Every realloc() is very expensive. Need to tune SCALEFACTOR.
+– Linked : Slightly fiddly implmentation - fast to
+delete an element.
+
+• If we had ordered our ADT (ie. the elements were
+sorted), then the searches could be via a binary
+/ interpolation search, leading to O(log n) or
+O(log log n) search times
+
+STACKS:
+• Operations include push and pop.
+• In the C run-time system, function calls are implemented using stacks.
+• Most recursive algorithms can be re-written using
+stacks instead.

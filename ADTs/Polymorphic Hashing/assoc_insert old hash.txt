@@ -1,0 +1,11 @@
+/*   if (aptr->keysize == 0) {
+      /* Hash for strings - split into _insert_str??
+      hash = _hash_str_run(aptr, (char*)key);
+      _point_hash_pairs(aptr, key, data, hash);
+   }
+   else {
+      /* Hash for ints
+      hash = _hash_int_run(aptr, (long)key);
+      _point_hash_pairs(aptr, key, data, hash);
+      printf("in insert: %ld\n", *(long*)aptr->arr[hash].key);
+   }*/
