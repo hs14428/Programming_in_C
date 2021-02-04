@@ -1,0 +1,35 @@
+For the extension I opted to add an additional instruction to the formal grammar; <JUMP>. <JUMP> can  
+be used after the FROM <VARNUM> TO <VARNUM> part of <DO> to specify the DO loop counter increments:
+DO A FROM 1 TO 10 JUMP 4 { 
+   FD 30 
+}
+The above would mean A goes from 1 --> 5 --> 9, as opposed to 1 --> 2 --> 3 etc. <JUMP> is optional 
+and if it not written into the <DO> instructions, it will default to loop increments of 1.
+
+As well as adding <JUMP>, I added the option for calculating the modulus in the <POLISH> calculations.
+Full extended grammar is as at the end of the text file.
+
+As well as adding in some extra grammar, I also decided to make the program a bit more interactive. 
+Instead of taking in a file name from the terminal when running the program and using that as the
+instructions, I opted to allow the user to either enter in a .ttl file upon prompt, or instead type
+in the instructions there and then.
+
+Also included in the more interactive extension are the options to specifiy the starting x and y 
+coordinates for the drawing and chosing the colour of lines to be drawn.
+
+Extended Grammar:
+<MAIN> ::= "{" <INSTRCTLST>                           
+<INSTRCTLST> ::= <INSTRUCTION> <INSTRCTLST> | "}"     
+<INSTRUCTION> ::= <FD> | <LT> | <RT> | <JUMP> | <DO> | <SET>
+<FD> ::= "FD" <VARNUM>                                
+<LT> ::= "LT" <VARNUM>                                
+<RT> ::= "RT" <VARNUM>                                
+<JUMP> ::= "JUMP" <VARNUM>
+<DO> ::= "DO" <VAR> "FROM" <VARNUM> "TO"
+               <VARNUM> (<JUMP>) "{" <INSTRCTLST>     
+<VAR> ::= [A−Z]                                       
+<VARNUM> ::= number | <VAR>                           
+<SET> ::= "SET" <VAR> ":=" <POLISH>                   
+<POLISH> ::= <OP> <POLISH> | <VARNUM> <POLISH> | ";"  
+<OP> ::= "+" | "−" | "*" | "/" | "%"                  
+

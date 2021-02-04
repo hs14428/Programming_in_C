@@ -1,0 +1,3 @@
+<PROG> ::= "BEGIN" <CODE>
+<CODE> ::= "END" | <STATEMENT> <CODE>
+<STATEMENT> ::= "ONE" | "NOUGHT"

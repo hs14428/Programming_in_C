@@ -1,0 +1,24 @@
+<MAIN> ::= "{" <INSTRCTLST>
+<INSTRCTLST> ::= <INSTRUCTION><INSTRCTLST> |
+                  "}"
+<INSTRUCTION> ::= <FD> | <LT> | <RT>
+<FD> ::= "FD" <VARNUM>
+<LT> ::= "LT" <VARNUM>
+<RT> ::= "RT" <VARNUM>
+<VARNUM> ::= number
+________________________________________________
+
+<MAIN> ::= "{" <INSTRCTLST>                           (DONE)
+<INSTRCTLST> ::= <INSTRUCTION> <INSTRCTLST> | "}"     (DONE)
+<INSTRUCTION> ::= <FD> | <LT> | <RT> | <JUMP> | <DO> | <SET>   (DONE)
+<FD> ::= "FD" <VARNUM>                                (DONE) (INTERP_DONE)
+<LT> ::= "LT" <VARNUM>                                (DONE) (INTERP_DONE)
+<RT> ::= "RT" <VARNUM>                                (DONE) (INTERP_DONE)
+<JUMP> ::= "JUMP" <VARNUM>
+<DO> ::= "DO" <VAR> "FROM" <VARNUM> "TO"
+               <VARNUM> (<JUMP>) "{" <INSTRCTLST>     (DONE)
+<VAR> ::= [A−Z]                                       (DONE) (NA_INTERP_NA)
+<VARNUM> ::= number | <VAR>                           (DONE) (NA_INTERP_NA)
+<SET> ::= "SET" <VAR> ":=" <POLISH>                   (DONE) (INTERP_DONE)
+<POLISH> ::= <OP> <POLISH> | <VARNUM> <POLISH> | ";"  (DONE) (INTERP_DONE)
+<OP> ::= "+" | "−" | "*" | "/" | "%"                  (DONE) (NA_INTERP_NA)

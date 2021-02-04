@@ -1,0 +1,10 @@
+Hi Neill. I hope the marking for this assignment isn't too soul sapping.
+
+In my extension.c file, I have added some colours to the printing and some lines to 
+make it look a bit more funky. I have also added in two functions, dupeShelves and 
+clearShelves, that will remove duplicates from the array of bookcases. As a result I 
+have been able to reduce the amount of calloc'd memory. Because of this, the solving of the 
+small to medium size bookcases are much quicker than the base file. However, honestly, I wasn't
+able to get it to finish the larger bookcases that the base file could solve (e.g. rggrcyyc-557.bc)!
+
+Thanks, and godspeed! :)

@@ -1,0 +1,26 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Visual Eyes Creative//CareerHub//EN
+METHOD:PUBLISH
+BEGIN:VEVENT
+DTSTART:20201209T093000Z
+DTEND:20201209T110000Z
+DTSTAMP:20201202T115306Z
+SUMMARY:Working in tech from a non-tech background. A session for MSc Compu
+ ter Science (conversion) students
+DESCRIPTION:Digital careers need compelling communicators and keen problem 
+ solvers\, not just expert computer programmers. Hear MSc Computer Science 
+ (conversion) alumni talk about their transition into the world of tech\, a
+ nd how they've managed to build successful careers since graduating.
+UID:554995:8280@UoBEngage
+CATEGORIES:Choosing and researching your career
+LOCATION:https://eu.bbcollab.com/guest/eb2be4d538734d2fbc8b3eb5740aaffa
+CREATED:20201123T132320
+LAST-MODIFIED:20201202T102112
+X-ALT-DESC;FMTTYPE=text/html:<!DOCTYPE HTML><HTML><HEAD></HEAD><BODY>Digita
+ l careers need compelling communicators and keen problem solvers\, not jus
+ t expert computer programmers. Hear MSc Computer Science (conversion) alum
+ ni talk about their transition into the world of tech\, and how they&apos\
+ ;ve managed to build successful careers since graduating.</BODY></HTML>
+END:VEVENT
+END:VCALENDAR

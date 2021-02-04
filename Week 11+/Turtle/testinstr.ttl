@@ -1,0 +1,124 @@
++300
+-300
+300
+30.70
+30.9.1
+x30
+.42
+hello450
+--30
+RT 300
+rT 30.7
+.RT 40
+RT 19.67
+R_T 40
+LT 21.9
+Lt 300
+LT +42
+RT -30
+FD +32.3
+F.D 19
+ FD -30.1
+fd 2
+RT 30
+FD_1.9
+LT 11.9
+LT RT 40
+FD RT LT 30
+FD -15
+}
+FD 20.1 }
+FD 20.1 .
+FD 20.1}
+RT -81 }
+L T 12 }
+LT RT 12 }
+{ RT 30 }
+{ FD 29.0 }
+{ RT 30}
+{ LT RT 30 }
++
+-
+*
+/
+++
+*-
+A
+Z
+M
+@
+[
+BB
+A
++8.1
++8,1
+#
+A8.1
++ + ;
+/ +100 ;
+-100 250.5 + * ;
+14 *+ 350 ;
+-29 41;
+32 45 + +;
+SET A := +50 32 + ;
+SET H := * 30 12 + / ;
+SET B:= 4 12 + + ;
+SeT A := -32 + ;
+SET A = +50 32 - ;
+DO A FROM 1 TO 10 { }
+DO B FROM 1 TO 20 { FD 30 }
+DO C FROM 9.1 TO -12 { LT +21 }
+do d from 1 to 3 { RT 21 }
+DO E FROM 1 TO 5 {LT 31}
+DO F FROM 9 TO 10 FD 10 }
+DO B FROM 1 TO 20 { DO A FROM 1 TO 10 { LT 30 } }
+
+simp.ttl:
+{
+   DO A FROM 1 TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+spiral1_c.ttl:
+{
+   DO A FROM 1 TO 100 {
+      SET C := A 1.5 * ;
+      FD C
+      RT 62
+   }
+}
+
+spiral2_c.ttl:
+{
+   DO A FROM 1 TO 50 {
+      FD A
+      RT 30
+      DO B FROM 1 TO 8 {
+         SET C := A 5 / ;
+         FD C
+         RT 45
+      }
+   }
+}
+
+simp_c.ttl:
+{
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+}

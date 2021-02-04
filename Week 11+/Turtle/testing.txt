@@ -1,0 +1,50 @@
+Testing Strategy:
+As I have done for a while now (after heeding your early advice), I have followed a test driven design approach and I feel it has paid dividends, as per usual.
+Following this approach, I set out to first build the parser with the reduced grammar instruction set, like advised. (BTW I couldn't get rid of the SDL memory leaks)
+
+Parser Test:
+The approach I followed here in the TDD environment was white boxing testing, speficially unit testing each function I made with a variety of inputs; see what 
+inputs worked and see what didn't. After this I was able to make changes to the function so that it would pass and fail the correct inputs and would therefore 
+hopefully catch and gracefully fail if incorrect inputs were passed. Usually after unit testing each function, I was able to do some integration testing in some  
+of the larger grammar functions as they would require the integration of other smaller grammar functions within them to function correctly. Thanks to the unit testing
+of the smaller functions, when doing this, it made the integration testing easier, as I knew what to expect when bringing together the different smaller functions
+in the bigger grammar functions. By doing this white box testing step by step, I was able to see and visualize how each interaction was changing and altering the data
+within in the program structure and meant I was able to closely follow how things were being parsed and processed.
+
+To carry out the actual testing, I imported strings from a testintr.ttl file I created and added to as I went along with the test. I felt this was easier than tyring to
+manually add in the strings to the program and meant I could quickly add and edit my instruction tests. For each line of testing, I have noted down which line of the 
+testinstr.ttl file the test is looking at, and also say what the test is so that you dont have to have the testinstr.ttl file open whilst reviewing. As a whole the approach  
+started well and opting to first build out the grammar functions that had the least dependencies of other grammar was definitely the right thing to do. This meant in 
+the aforementioned testing, it was easier to do so. Making all of the functions bools also helped considerably as asserting on bools is as easy as 1, 2, 3. The order 
+of my assert tests in parser_test.c file is the order I made them, and hopefully you can see how by following this TDD approach, it meant I thought more about how best 
+to make the functions, by splitting things down and testing them bit by bit so that if things went wrong, it was easier to isolate the problem (e.g. isValNumStart and VarNum). 
+In my testing for the parser I tested a variety of correct and incorrect inputs to check that things would work as planned, and if not I could catch it and put in failsafes.
+After I had built out and tested all the functions using the cut down grammar, I set about adding new functions for the new grammar and also extending certain functions, e.g.
+<VARNUM> and <INSTRUCTION> to make sure they worked with the added dependencies and/or new criteria. After unit testing each function and making sure they all worked how i 
+wanted them to, i finished up the parser testing by testing that if I ran the Prog / <MAIN> function with the pre-provided .ttl files (simp_c, spiral1_c etc.) they would pass
+ok. Fortunately for me, they did and all the testing as i went prevailed.
+
+Interpreter Testing:
+For this, I basically followed the exact same approach as for the parser, but made a new testinterp.ttl file so that my p->ci numbers didnt get too high lol, and it made sense
+as it was a new part of the program, so a new test file seemed the right thing. When setting out on the interpreter journey, I duplicated all of the functions I had made for the 
+parser, renamed them slightly so that I knew they were doing the interpreting, as well as parsing, and set about thinking how to interpret what was being passed into the fns.
+By using the original parser fn as a starting point, I knew what I would be receiving at each point of the fns due to the extensive testing on these functions previously. This
+meant that I had confidence to add additional code for the interpreter within the fns and testing was easy to predict using the same unit testing and whitebox testing methods
+described already. Sometimes I had to rejig the order of the if statements from the original parser fns and obviously as I went I found I needed to add new smaller functions
+here and there to make the larger interpreter grammar functions easier to digest and also test. As with above, I tested these new little functions one by one, part by part,
+with many print statements to know exactly what was going on. As I was testing the outcome of doubles, I also had to test the difference between expected outcome and the outcome
+against a very small number - epsilon.
+
+Test Harness:
+Although I didn't use a specific test harness in the design process, I did read up about it and a couple of C based test harness, e.g. Unity and posts of StackOverflow.
+Whilst I didn't actively set-up a personal test harness in, if my understanding is correct, I feel I subconsiously made a basic test harness with the style 
+and approach of unit/whitebox testing that I took. I guess my "test harness" is my two separate parser_test.c and interp_test.c files that execute the tests using a
+library of tests (i.e. all the different methods of assert tests I did). Although the testing didnt generate reports, whilst testing, my print statements 
+(since removed) were acting as my on the fly reports that told me what was going on. The testing was able to handle different data and scenarios, and the testing
+was tailored to fit each scenario for the functions I was building. Not sure if this is a bit far fetched, but now that I am familiar with the concept of test
+harnesses, I think going forward it would definitely be educational, and most likely, beneficial to use something like the Unity test harness for future projects.
+Assuming that this was your aim all along? To get us to think about testing in a more structured manner, as opposed to just a bit here and there!
+
+Also just wanted to say a big thank you for the unit last term. It was a thoroughly enjoyable and well managed unit, massively exceeding my expectations of online
+learning, and I certainly learnt a lot! I'm looking forward to taking what I've learnt forward and onto some of the OOP languages :)
+

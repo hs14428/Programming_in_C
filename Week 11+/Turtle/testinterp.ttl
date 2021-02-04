@@ -1,0 +1,80 @@
++
+-
+*
+/
+50
+-50
+A
+U
+10 5 + ;
+1000 5 10 10 * + 5 - / ;
+A 5 + U - ;
+A 5 + U -;
+SET A := 30 ;
+SET B := A 5 + ;
+SET b := A 5 + ;
+FD 30
+FD A
+LT 30
+RT 45
+RT B
+rt 10
+FD 30 }
+FD 30 RT 30 }
+SET A := 50 30 + ; }
+DO A FROM 1 TO 10 { }
+DO A FROM 1 TO 10 { FD 30 }
+
+simp.ttl:
+{
+   DO A FROM 1 TO 8 {
+      FD 30
+      LT 45
+   }
+}
+
+spiral1_c.ttl:
+{
+   DO A FROM 1 TO 100 {
+      SET C := A 1.5 * ;
+      FD C
+      RT 62
+   }
+}
+
+spiral2_c.ttl:
+{
+   DO A FROM 1 TO 50 {
+      FD A
+      RT 30
+      DO B FROM 1 TO 8 {
+         SET C := A 5 / ;
+         FD C
+         RT 45
+      }
+   }
+}
+
+simp_c.ttl:
+{
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+   FD 30
+   LT 45
+}
+
+fprintf(stderr, "Issue at word pos: %d = %s\n",\
+prog.ci, prog.instr[prog.ci]);
+exit(EXIT_FAILURE);
